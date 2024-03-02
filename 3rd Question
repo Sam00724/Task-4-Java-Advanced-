@@ -1,0 +1,21 @@
+import java.util.Scanner;
+
+public class Weekdays {
+    public static void main(String[] args) {
+        String[] weekdays = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the index of the day (0-6): ");
+        int dayIndex = scanner.nextInt();
+
+        try {
+            System.out.println("The day name is: " + weekdays[dayIndex]);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Error: Invalid day index. Please enter a day index between 0 and 6.");
+        }
+    }
+}
+
+OUTPUT:
+Enter the index of the day (0-6): 5
+The day name is: Friday
