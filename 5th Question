@@ -1,0 +1,46 @@
+import java.util.*;
+
+class Stack {
+    int[] elements;
+    int top;
+    
+    Stack(){
+        this.elements = new int[100];
+        this.top = -1;
+    }
+    
+    void push(int num){
+        //top = top + 1
+        elements[++top] = num; 
+        System.out.println("Pushed element : " + num);
+    }
+    
+    void pop(){
+        if (!isEmpty())
+            System.out.println("Popping element : " + elements[top--]);
+        else
+            System.out.println("Stack is empty");
+    }
+    
+    boolean isEmpty() {
+        return top == -1;
+    }
+}
+
+class Main {
+    public static void main(String[] args)  {
+        Stack st = new Stack();
+        st.push(10);
+        st.push(30);
+        st.push(20);
+        System.out.println(st.isEmpty());
+        st.pop();
+        st.pop();
+    }
+}
+
+
+OUTPUT:
+false
+Popping element : 20
+Popping element : 30
