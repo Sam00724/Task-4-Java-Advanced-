@@ -1,0 +1,26 @@
+class Voter {
+    int age;
+    
+    Voter(int age) throws Exception {
+        if (age < 18)
+            throw new Exception();
+        this.age = age;
+    }
+}
+class Main {
+    public static void main(String[] args) {
+        try{
+            Voter v1 = new Voter(21);
+            System.out.println(v1.age);
+            
+            Voter v2 = new Voter(17);
+        }
+        catch(Exception e){
+            System.out.println("Invalid age for voter");
+        }
+    }
+}
+
+OUTPUT:
+21
+Invalid age for voter
