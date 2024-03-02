@@ -1,0 +1,55 @@
+//Main.java
+
+class AgeNotWithinRangeException extends Exception {
+    public AgeNotWithinRangeException(int age) {
+        System.out.println("Age not valid ::" + age);
+    }
+}
+
+class NameNotValidException extends Exception {
+    public NameNotValidException(String name) {
+        System.out.println("Name not valid ::" + name);
+    }
+}
+
+class Student {
+    int rollno, age;
+    String name, course;
+    
+    Student(int rollno, int age, String name, String course) throws AgeNotWithinRangeException, NameNotValidException {
+        if (age < 15 || age > 21)
+            throw new AgeNotWithinRangeException(age);
+        if (!name.matches("^[a-zA-Z]*$"))
+            throw new NameNotValidException(name);
+        this.rollno = rollno;
+        this.course = course;
+        this.age = age;
+        this.name = name;
+    }
+}
+class Main {
+    public static void main(String[] args) {
+        try{
+            Student s1 = new Student(1, 18, "Shervin", "CS");
+            System.out.println(s1.age + " " + s1.name);
+            
+            //age exception
+            Student s2 = new Student(2, 24, "Kevin", "ECE");
+            
+            //name exception
+            Student s3 = new Student(2, 21, "S@m07", "ECE");
+        }
+        catch(AgeNotWithinRangeException ae){
+            System.out.println("Age exception catched!");
+        }
+        catch(NameNotValidException ne){
+            System.out.println("Name exception catched!");
+        }
+    }
+}
+
+OUTPUT:
+18 Shervin
+Age not valid ::24
+Age exception catched!
+
