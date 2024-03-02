@@ -1,0 +1,37 @@
+import java.util.*;
+
+class Students {
+    HashMap<String,Integer> studentsData;
+    
+    Students(){
+        studentsData = new HashMap<>();
+    }
+    
+    void addStudent(String name, int grade){
+        studentsData.put(name, grade);
+    }
+    
+    void removeStudent(String name){
+        studentsData.remove(name);
+        System.out.println("Removed student : " + name);
+    }
+    
+    void displayGrade(String name){
+        System.out.println("Grade of " + name + " is " + studentsData.get(name));
+    }
+}
+
+
+class Main {
+    public static void main(String[] args)  {
+        Students stds = new Students();
+        stds.addStudent("Shervin", 89);
+        stds.addStudent("Sam", 78);
+        stds.displayGrade("Shervin");
+        stds.removeStudent("Sam");
+    }
+}
+
+OUTPUT:
+Grade of Shervin is 89
+Removed student : Sam
